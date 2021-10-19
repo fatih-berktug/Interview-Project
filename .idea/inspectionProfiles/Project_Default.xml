@@ -1,0 +1,36 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="3">
+            <item index="0" class="java.lang.String" itemvalue="psycopg2" />
+            <item index="1" class="java.lang.String" itemvalue="django" />
+            <item index="2" class="java.lang.String" itemvalue="mysqlclient" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="ekabis.urls.path" />
+          <option value="ekabis.services.general_methods.PermissionGroup" />
+          <option value="ekabis.services.general_methods.Permission" />
+          <option value="ekabis.Views.DirectoryViews.traceback" />
+          <option value="ekabis.Forms.SettingsForm.Settings" />
+          <option value="accounts.admin.Settings" />
+          <option value="ekabis.Views.UserViews.User" />
+          <option value="ekabis.models.Company.CompanyUser" />
+          <option value="ekabis.Views.YekaBussinessBlogStaticView.YekaApplication" />
+          <option value="ekabis.models.YekaCompany.YekaApplicationFile" />
+          <option value="sbs.models.YProject.Town" />
+          <option value="sbs.Views.YProjectViews.YprojectFileForm" />
+          <option value="yonetim.Views.YProjectViews.DeedForm" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

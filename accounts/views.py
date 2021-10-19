@@ -23,7 +23,7 @@ def login(request):
             return redirect('vira:view_main')
         else:
             return redirect('accounts:logout')
-    return render(request, 'registration/login.html')
+    return render(request, 'login.html')
 
 
 def pagelogout(request):
@@ -42,7 +42,7 @@ def updateUrlProfile(request):
             if forgot.status == False:
                 forgot.status = True
                 forgot.save()
-                return render(request, 'registration/templates/newPassword.html',
+                return render(request, 'newPassword.html',
                               {'password_form': password_form})
             return redirect('accounts:login')
 
@@ -68,7 +68,7 @@ def updateUrlProfile(request):
                 else:
 
                     messages.warning(request, 'Alanları Kontrol Ediniz')
-                    return render(request, 'registration/templates/newPassword.html',
+                    return render(request, 'newPassword.html',
                                   {'password_form': password_form})
             except:
                 return redirect('accounts:login')
@@ -109,4 +109,4 @@ def forgot(request):
             messages.warning(request, "Geçerli bir mail adresi giriniz.")
             return redirect("accounts:forgot")
 
-    return render(request, 'registration/templates/forgot-password.html')
+    return render(request, 'forgot-password.html')

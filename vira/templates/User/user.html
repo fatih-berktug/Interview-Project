@@ -1,10 +1,68 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-kisi bilgilerini düzenleme alanı
-</body>
-</html>
+{% extends 'base_layout.html' %}
+{% block main %}
+    <div id="content" class="site-content">
+        <div class="container">
+            <div class="sml-page-wrap no-sidebar">
+                <div id="primary" class="content-area">
+
+
+                    <main id="main" class="site-main">
+
+                        <article id="post-121" class="post-121 page type-page status-publish hentry">
+                            <div class="sml-single-page-wrapp">
+
+                                <div class="entry-content">
+                                    <div class="woocommerce">
+
+
+                                        <h2>Kullanıcı Bilgilerini Güncelleyiniz:</h2>
+
+                                        <form class="woocommerce-form woocommerce-form-login login"
+                                              method="post"
+                                              id="patientform">
+                                            {% csrf_token %}
+
+                                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                <label>{{ user_form.first_name.label }}</label>
+                                                {{ user_form.first_name }}</p>
+
+
+                                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                <label>{{ user_form.last_name.label }}</label>
+                                                {{ user_form.last_name }}</p>
+
+                                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                <label>{{ user_form.email.label }}</label>
+                                                {{ user_form.email }}</p>
+
+                                            {{ password_form }}
+
+
+                                            <p class="form-row">
+
+                                                <button type="submit"
+                                                        style="margin-top: 20px; text-align: left"
+                                                        class="woocommerce-button button woocommerce-form-login__submit"
+                                                        value="Log in">Kaydet
+                                                </button>
+                                            </p>
+
+                                            <input type="hidden" id="custId" name="custId" value="">
+
+
+                                        </form>
+
+
+                                    </div>
+
+                                </div>
+                            </div><!-- .entry-content -->
+                        </article><!-- #post-121 -->
+
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

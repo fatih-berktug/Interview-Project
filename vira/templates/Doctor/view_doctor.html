@@ -1,4 +1,144 @@
 {% extends 'base_layout.html' %}
 {% block main %}
-benden selalm olsun bolu beyine vira soft
+    <div id="content" class="site-content">
+        <div class="container">
+            <div class="sml-page-wrap no-sidebar">
+                <div id="primary" class="content-area">
+
+
+                    <main id="main" class="site-main">
+
+                        <article id="post-121" class="post-121 page type-page status-publish hentry">
+                            <div class="sml-single-page-wrapp">
+
+                                <div class="entry-content">
+                                    <div class="woocommerce">
+
+
+                                        <h2>Hasta Bilgilerini Giriniz:</h2>
+
+                                        <form class="woocommerce-form woocommerce-form-login login"
+                                              method="post"
+                                              id="patientform">
+                                            {% csrf_token %}
+
+                                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                <label>{{ patiend_form.name.label }}</label>
+                                                {{ patiend_form.name }}</p>
+
+
+                                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                <label>{{ patiend_form.surname.label }}</label>
+                                                {{ patiend_form.surname }}</p>
+
+                                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                <label>{{ patiend_form.tc.label }}</label>
+                                                {{ patiend_form.tc }}</p>
+
+                                            <p class="woocommerce-form-row woocommerce-form-row--wide form-row form-row-wide">
+                                                <label>{{ patiend_form.cancerType.label }}</label>
+                                                {{ patiend_form.cancerType }}</p>
+
+
+                                            <p class="form-row">
+
+                                                <button type="submit"
+                                                        style="margin-top: 20px; text-align: left"
+                                                        class="woocommerce-button button woocommerce-form-login__submit"
+                                                        value="Log in">Kaydet
+                                                </button>
+                                            </p>
+
+
+                                        </form>
+
+
+                                    </div>
+
+                                </div>
+                            </div><!-- .entry-content -->
+
+
+                            <table id="patientable" class="table table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>İSİM</th>
+                                    <th>SOYİSİM</th>
+                                    <th>TC NUMARASI</th>
+                                    <th>KANSER TÜRÜ</th>
+                                    <th>İŞLEMLER</th>
+
+                                </tr>
+                                </thead>
+
+                                <tbody>
+
+                                {% if patinets %}
+                                    {% for patient in patinets %}
+                                        <tr id="patient-{{ patinet.pk }}">
+                                            <td>{{ forloop.counter }} </td>
+                                            <td>{{ patient.name }}</td>
+                                            <td>{{ patient.surname }}</td>
+                                            <td>{{ patient.tc }}</td>
+                                            <td>{{ patient.cancerType }}</td>
+                                            <td>
+
+
+                                                <button onclick="change_patient('{{ patient.pk }}')"
+                                                        class="dropdown-item" title="Yarışma"
+                                                        type="button">Güncelle
+                                                </button>
+                                                <button onclick="deleteRegion('{{ patient.uuid }}')"
+                                                        class="dropdown-item" title="Sil"
+                                                        type="button">Sil
+                                                </button>
+
+
+                                        </tr>
+
+                                    {% endfor %}
+                                {% endif %}
+
+
+                                </tbody>
+                            </table>
+
+
+                        </article><!-- #post-121 -->
+
+                    </main><!-- #main -->
+                </div><!-- #primary -->
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+            integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+            crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#patientform").submit(function (e) {
+
+                e.preventDefault();
+
+                var form = $(this);
+                var url = form.attr('action');
+
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    data: form.serialize(),
+                    success: function (data) {
+                        debugger;
+                        if (data.status == "Success"){
+                            alert("işlem başarılı")
+                        }
+                    }
+                });
+            });
+        });
+    </script>
 {% endblock %}

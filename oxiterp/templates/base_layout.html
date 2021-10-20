@@ -696,12 +696,12 @@
 <body class="home page-template page-template-tpl-home page-template-tpl-home-php page page-id-34 wp-custom-logo wp-embed-responsive theme-zigcy-lite woocommerce-no-js woocommerce-active elementor-default elementor-kit-10">
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#content">Skip to content</a>
-                           {% block content %}
+    {% block content %}
 
 
 
 
-        {% endblock %}
+    {% endblock %}
     <header id="masthead" class="site-header header-two">
         <div class="container">
 
@@ -711,53 +711,35 @@
                             width="189" height="45"
                             src="https://shop.virasoft.com/wp-content/uploads/2021/05/logo_dark.png" class="custom-logo"
                             alt="Virasoft" data-pagespeed-url-hash="3749187825"
-                            onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/></a>
+                    /></a>
                     <p class="site-title"><a href="https://shop.virasoft.com/" rel="home">Virasoft</a></p>
                     <p class="site-description">Digital Pathology Solutions</p>
                 </div><!-- .site-branding -->
                 <div class="store-mart-lite-header-wrap">
-                    <div class="store-mart-lite-header-icons">
 
-                        <div class="store-mart-lite-top-header">
-                            <div class="top-header-left-text">
-                                Get 20% Discount on all products
-                            </div>
-                        </div>
-
-                        <div class="store-mart-lite-top-header-left">
-                            <div class="store-mart-lite-sc-icons">
-                                <a href="https://www.facebook.com/VirasoftTR" target="_blank">
-                                    <i class="fa fa-facebook"></i>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UC33mc669X-hkUxRvp39PT9w" target="_blank">
-                                    <i class="fa fa-youtube"></i>
-                                </a>
-                                <a href="https://www.instagram.com/virasofttr/" target="_blank">
-                                    <i class="fa fa-instagram"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
                     <div class="store-mart-lite-product-cat">
                         <nav id="site-navigation" class="main-navigation">
                             <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"></button>
                             <div class="menu-primary-menu-container">
                                 <ul id="primary-menu" class="menu">
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-34 current_page_item menu-item-457">
-                                        <a href="https://shop.virasoft.com/" aria-current="page"><span>Home</span></a>
-                                    </li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-622">
-                                        <a href="https://shop.virasoft.com/about-us/"><span>About Us</span></a></li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-521">
-                                        <a href="https://shop.virasoft.com/shop/"><span>Shop</span></a>
-                                        <ul class="sub-menu">
-                                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-563">
-                                                <a href="https://shop.virasoft.com/product-category/telepathology/"><span>Telepathology</span></a>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522">
-                                        <a href="https://shop.virasoft.com/contact-us/"><span>Contact Us</span></a></li>
+
+                                    {% if user.is_authenticated %}
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-622">
+                                            <a href="{% url "vira:view_main" %}"
+                                               aria-current="page"><span>Anasayfa</span></a>
+                                        </li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-622">
+                                            <a href="{% url "vira:view_doctor" %}"><span>Doktor</span></a></li>
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-622">
+
+                                            <a href="{% url "vira:change_user" %}"><span>Kullanıcı</span></a>
+                                        </li>
+
+                                        <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-622">
+
+                                            <a href="{% url "accounts:logout" %}"><span>Çıkış Yap</span></a></li>
+
+                                    {% endif %}
                                 </ul>
                             </div>
                         </nav><!-- #site-navigation -->
@@ -765,83 +747,6 @@
                     </div>
                 </div>
 
-                <div class="store-mart-lite-login-wrap">
-                    <div class="sml-search-icon-wrap">
-      <span class="sml-search-icon">
-        <i class="lnr lnr-magnifier" aria-hidden="true"></i>
-      </span>
-                        <div class="search-outer">
-                            <div class="search-form-wrap">
-                                <h3 class="search-label">Search</h3>
-                                <form role="search" method="get" class="search-form"
-                                      action="https://shop.virasoft.com/">
-                                    <label>
-                                        <span class="screen-reader-text">Search for:</span>
-                                        <input type="search" class="search-field" placeholder="Search &hellip;" value=""
-                                               name="s"/>
-                                    </label>
-                                    <input type="submit" class="search-submit" value="Search"/>
-                                </form>
-                                <a href="javascript:void(0)" class="btn-hide">
-                                    <i class="lnr lnr-cross"></i>
-                                </a>
-                            </div>
-                            <div class="search-content"></div>
-                        </div>
-                    </div>
-                    <div class="user-logout-wrap sm-icon-header">
-                        <a href="https://shop.virasoft.com/my-account/">
-
-                            <i class="lnr lnr-user" aria-hidden="true"></i>
-                            <span>
-     Login/Signup   </span>
-                        </a>
-                    </div>
-                    <div class="sm-wishlist-wrap sm-icon-header">
-                        <a href="https://shop.virasoft.com/wishlist" title="My Wishlist" class="sm-wishlist-ct-class">
-                            <i class="lnr lnr-heart" aria-hidden="true"></i>
-                            <span class="wishlist-counter">
-            0            </span>
-                        </a>
-                        <div id="sm-wishlist-loader" style="display:none;">
-                            <img src="https://shop.virasoft.com/wp-content/themes/zigcy-lite/assets/images/spinner.gif"
-                                 alt="Home" data-pagespeed-url-hash="2415369720"
-                                 onload="pagespeed.CriticalImages.checkImageForCriticality(this);">
-                        </div>
-                        <div class="wishlist-dropdown product_list_widget">
-
-
-                            <p class="empty">No products in the wishlist.</p>
-
-
-                        </div><!-- end product list -->
-
-                    </div>
-                    <div class="cart-icon-wrap">
-                        <ul id="site-header-cart" class="site-header-cart">
-                            <li class="">
-                                <a href="https://shop.virasoft.com/cart/" class="cart-contents">
-			<span class="sm-cart-icon-wrap">
-				<span class="icon">
-							<span class="lnr lnr-cart"></span>
-						</span>
-				<span class="sm-cart-count">
-					0				</span>
-			</span>
-                                    <span class="sm-cart-wrap">
-				<span class="sm-cart-text">My Cart</span>
-				<span class="sm-cart-amount">&#036;0.00</span>
-			</span>
-                                </a>
-                            </li>
-                            <li>
-                                <div class="widget woocommerce widget_shopping_cart">
-                                    <div class="widget_shopping_cart_content"></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
 
             </div>
 
@@ -850,165 +755,17 @@
     </header><!-- #masthead -->
 
 </div>
-<section id="plx_slider_promo_section" class="plx_slider_promo_section">
-    <div class="store-mart-lite-slider-promo-banner">
-        <div class="n2-section-smartslider fitvidsignore  n2_clear" role="region" aria-label="Slider">
-            <style>div#n2-ss-2 {
-                width: 1200px
-            }
 
-            div#n2-ss-2 .n2-ss-slider-1 {
-                position: relative
-            }
-
-            div#n2-ss-2 .n2-ss-slider-background-video-container {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                overflow: hidden
-            }
-
-            div#n2-ss-2 .n2-ss-slider-2 {
-                position: relative;
-                overflow: hidden;
-                padding: 0 0 0 0;
-                height: 600px;
-                border: 0 solid RGBA(62, 62, 62, 1);
-                border-radius: 0;
-                background-clip: padding-box;
-                background-repeat: repeat;
-                background-position: 50% 50%;
-                background-size: cover;
-                background-attachment: scroll;
-                z-index: 1
-            }
-
-            div#n2-ss-2 .n2-ss-slider-3 {
-                position: relative;
-                width: 100%;
-                height: 100%;
-                overflow: hidden;
-                outline: 1px solid rgba(0, 0, 0, 0);
-                z-index: 10
-            }
-
-            div#n2-ss-2 .n2-ss-slide-backgrounds, div#n2-ss-2 .n2-ss-slider-3 > .n-particles-js-canvas-el, div#n2-ss-2 .n2-ss-slider-3 > .n2-ss-divider {
-                position: absolute;
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%
-            }
-
-            div#n2-ss-2 .n2-ss-slide-backgrounds {
-                z-index: 10
-            }
-
-            div#n2-ss-2 .n2-ss-slider-3 > .n-particles-js-canvas-el {
-                z-index: 12
-            }
-
-            div#n2-ss-2 .n2-ss-slide-backgrounds > * {
-                overflow: hidden
-            }
-
-            div#n2-ss-2 .n2-ss-slide {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                z-index: 20;
-                display: block;
-                -webkit-backface-visibility: hidden
-            }
-
-            div#n2-ss-2 .n2-ss-layers-container {
-                position: relative;
-                width: 1200px;
-                height: 600px
-            }
-
-            div#n2-ss-2 .n2-ss-parallax-clip > .n2-ss-layers-container {
-                position: absolute;
-                right: 0
-            }
-
-            div#n2-ss-2 .n2-ss-slide {
-                perspective: 1000px
-            }
-
-            div#n2-ss-2[data-ie] .n2-ss-slide {
-                perspective: none;
-                transform: perspective(1000px)
-            }
-
-            div#n2-ss-2 .n2-ss-slide-active {
-                z-index: 21
-            }</style>
-            <div id="n2-ss-2-align" class="n2-ss-align">
-                <div class="n2-padding">
-                    <div id="n2-ss-2" data-creator="Smart Slider 3"
-                         class="n2-ss-slider n2-ow n2-has-hover n2notransition  n2-ss-load-fade "
-                         style="font-size: 1rem;" data-fontsize="16">
-                        <div class="n2-ss-slider-1 n2_ss__touch_element n2-ow" style="">
-                            <div class="n2-ss-slider-2 n2-ow" style="">
-                                <div class="n2-ss-slider-3 n2-ow" style="">
-
-                                    <div class="n2-ss-slide-backgrounds"></div>
-                                    <div data-first="1" data-slide-duration="0" data-id="5"
-                                         data-title="telepathology-mobile-cover" style=""
-                                         class=" n2-ss-slide n2-ss-canvas n2-ow  n2-ss-slide-5">
-                                        <div class="n2-ss-slide-background n2-ow" data-mode="fill">
-                                            <div data-hash="abd924334f5e1267e486e5dfae6dce3d"
-                                                 data-desktop="//shop.virasoft.com/wp-content/uploads/2021/05/telepathology-mobile-cover.png"
-                                                 class="n2-ss-slide-background-image" data-blur="0" data-alt=""
-                                                 data-title="" data-no-lazy=""
-                                                 style="background-image:url(//shop.virasoft.com/wp-content/uploads/2021/05/telepathology-mobile-cover.png)"></div>
-                                        </div>
-                                        <div class="n2-ss-layers-container n2-ow">
-                                            <div class="n2-ss-layer n2-ow" style="padding:10px 10px 10px 10px;"
-                                                 data-desktopportraitpadding="10|*|10|*|10|*|10" data-sstype="slide"
-                                                 data-csstextalign="center" data-pm="default"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div id="n2-ss-2-spinner" style="display: none;">
-                        <div>
-                            <div class="n2-ss-spinner-simple-white-container">
-                                <div class="n2-ss-spinner-simple-white"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="n2_clear"></div>
-            <div id="n2-ss-2-placeholder"
-                 style="min-height:0px;position: relative;z-index:2;background-color:RGBA(0,0,0,0); background-color:RGBA(255,255,255,0);">
-                <img style="width: 100%; max-width:1200px; display: block;opacity:0;margin:0px;"
-                     class="n2-ow jetpack-lazy-image" data-skip-lazy="1"
-                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAwIiBoZWlnaHQ9IjYwMCIgPjwvc3ZnPg=="
-                     alt="Slider" data-pagespeed-url-hash="2206168307"
-                     onload="pagespeed.CriticalImages.checkImageForCriticality(this);"></div>
-        </div>
-    </div>
-</section>
-    {% load static %}
+{% load static %}
 <div id="content" class="site-content">
-        {% block main %}
+    {% block main %}
 
 
 
 
 
 
-        {% endblock %}
+    {% endblock %}
 
 
 </div><!-- #content -->
@@ -1030,7 +787,7 @@
                                                                                            alt="" loading="lazy"
                                                                                            style="max-width: 100%; height: auto;"
                                                                                            data-pagespeed-url-hash="3749187825"
-                                                                                           onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                                                                                        />
                             </div>
                             <div id="text-1" class="widget widget_text">
                                 <div class="textwidget">
@@ -1045,26 +802,28 @@
                             </div>
                         </div>
 
-
-                        <div class="block footer-widget-2">
-                            <div id="nav_menu-1" class="widget widget_nav_menu"><h2 class="widget-title">
-                                Information</h2>
-                                <div class="menu-information-container">
-                                    <ul id="menu-information" class="menu">
-                                        <li id="menu-item-464"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-34 current_page_item menu-item-464">
-                                            <a href="https://shop.virasoft.com/" aria-current="page">Home</a></li>
-                                        <li id="menu-item-520"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-520">
-                                            <a href="https://shop.virasoft.com/my-account/">My account</a></li>
-                                        <li id="menu-item-537"
-                                            class="menu-item menu-item-type-post_type menu-item-object-page menu-item-537">
-                                            <a href="https://shop.virasoft.com/contact-us/">Contact Us</a></li>
-                                    </ul>
+                        {% if  user.is_authenticated %}
+                            <div class="block footer-widget-2">
+                                <div id="nav_menu-1" class="widget widget_nav_menu"><h2 class="widget-title">
+                                    Information</h2>
+                                    <div class="menu-information-container">
+                                        <ul id="menu-information" class="menu">
+                                            <li id="menu-item-464"
+                                                class="fa fa-home">
+                                                <a href="{% url "vira:view_main" %}" aria-current="page">Anasayfa</a>
+                                            </li>
+                                            <li id="menu-item-520"
+                                                class="fa fa-home">
+                                                <a href="{% url "vira:view_doctor" %}">Doktor</a></li>
+                                            <li id="menu-item-537"
+                                                class="fa fa-home">
+                                                <a href="https://shop.virasoft.com/contact-us/">Bilgilerimi Güncelle</a>
+                                            </li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
+                        {% endif %}
 
 
                     </div>
@@ -1078,7 +837,7 @@
                     <div class="store-mart-lite-footer-image-control">
                         <img src="https://shop.virasoft.com/wp-content/uploads/2021/05/image-2.png" alt="" title="Home"
                              data-pagespeed-url-hash="1994984347"
-                             onload="pagespeed.CriticalImages.checkImageForCriticality(this);"/>
+                             />
                     </div>
                 </div>
             </div>
@@ -1247,7 +1006,7 @@ jQuery(window).on("load", function () {
                 if (typeof msg.data !== 'undefined' && typeof msg.data.location !== 'undefined') {
                     jQuery(image_div).hide();
                     window.location.replace(msg.data.location);
-                    return;
+
                 } else {
                     var note_id = "#note_" + jQuery(form).data('rfq-product-id');
                     jQuery(note_id).html('<div style="display: block"><a  class="link_to_rfq_page_link" href="https://shop.virasoft.com/quote-request/" >&nbsp;View List&nbsp;</a></div>');
